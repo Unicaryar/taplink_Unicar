@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <!-- Запрещаем кэширование страницы, чтобы ссылки всегда были свежими -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>Все ресурсы автосалона</title>
     <!-- Шрифт Manrope -->
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -80,7 +84,7 @@
             font-weight: 800;
             color: #212529;
             margin-bottom: 8px;
-            white-space: nowrap;      /* Запрещаем перенос */
+            white-space: nowrap;
             letter-spacing: -0.3px;
         }
 
@@ -168,10 +172,10 @@
             z-index: 2;
         }
 
-        /* Адаптация размера заголовка, чтобы помещался в одну строку даже на узких экранах */
+        /* Адаптация размера заголовка */
         @media (max-width: 520px) {
             h1 {
-                font-size: 7vw;    /* динамическое уменьшение от ширины экрана */
+                font-size: 7vw;
                 white-space: nowrap;
             }
         }
@@ -182,7 +186,6 @@
             }
         }
 
-        /* Планшеты и ПК — фиксированный размер */
         @media (min-width: 768px) {
             .taplink-card {
                 max-width: 560px;
@@ -217,10 +220,9 @@
 </head>
 <body>
 <div class="taplink-card">
-    <!-- Вертикальное фоновое видео (75% прозрачности) -->
+    <!-- Фоновое видео -->
     <video class="bg-video" autoplay loop muted playsinline>
         <source src="video.mp4" type="video/mp4">
-        <!-- Если видео не загрузится, фон останется белым -->
     </video>
 
     <div class="logo-container">
@@ -240,35 +242,35 @@
 </div>
 
 <script>
-    // ================= НАСТРАИВАЕМЫЙ МАССИВ РЕСУРСОВ =================
+    // ================= НАСТРАИВАЕМЫЙ МАССИВ РЕСУРСОВ (НОВЫЕ ССЫЛКИ) =================
     const resources = [
         {
             name: "Avito",
-            url: "https://clc.li",
+            url: "https://www.avito.ru/brands/avto-rassrochka",
             icon: "avito.png",
             displayText: "Мы на Авито"
         },
         {
             name: "MAX",
-            url: "https://max.ru",
+            url: "https://web.max.ru/-73321505972408",
             icon: "max.png",
             displayText: "Мы в MAX"
         },
         {
             name: "RUTUBE",
-            url: "https://rutube.ru",
+            url: "https://rutube.ru/channel/45807304/",
             icon: "rutube.png",
             displayText: "Мы в RUTUBE"
         },
         {
             name: "Telegram",
-            url: "https://t.me",
+            url: "https://t.me/avtokupit",
             icon: "telegram.png",
             displayText: "Мы в Telegram"
         },
         {
             name: "VK",
-            url: "https://vk.com/your_company",
+            url: "https://vk.com/unicar_pro",
             icon: "vk.png",
             displayText: "Мы в VK"
         }
@@ -390,7 +392,7 @@
             leftDiv.appendChild(img);
             
             const textSpan = document.createElement('span');
-            textSpan.textContent = res.displayText || `Мы в ${res.name}`;
+            textSpan.textContent = res.displayText;
             leftDiv.appendChild(textSpan);
             
             const arrowSpan = document.createElement('span');
