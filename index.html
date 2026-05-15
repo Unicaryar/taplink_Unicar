@@ -4,16 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Все ресурсы автосалона</title>
+    <!-- Шрифт Manrope -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            /* Убираем синий фон при нажатии на телефоне */
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
             background: #6c757d;
-            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            font-family: 'Manrope', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -70,12 +74,14 @@
             margin-bottom: 32px;
         }
 
+        /* Заголовок всегда в одну строку */
         h1 {
             font-size: 1.9rem;
-            font-weight: 700;
+            font-weight: 800;
             color: #212529;
             margin-bottom: 8px;
-            position: relative;
+            white-space: nowrap;      /* Запрещаем перенос */
+            letter-spacing: -0.3px;
         }
 
         .sub {
@@ -84,6 +90,7 @@
             border-bottom: 1px solid #dee2e6;
             display: inline-block;
             padding-bottom: 6px;
+            font-weight: 600;
             position: relative;
         }
 
@@ -161,6 +168,21 @@
             z-index: 2;
         }
 
+        /* Адаптация размера заголовка, чтобы помещался в одну строку даже на узких экранах */
+        @media (max-width: 520px) {
+            h1 {
+                font-size: 7vw;    /* динамическое уменьшение от ширины экрана */
+                white-space: nowrap;
+            }
+        }
+
+        @media (max-width: 420px) {
+            h1 {
+                font-size: 6.5vw;
+            }
+        }
+
+        /* Планшеты и ПК — фиксированный размер */
         @media (min-width: 768px) {
             .taplink-card {
                 max-width: 560px;
