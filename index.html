@@ -33,6 +33,21 @@
             overflow: hidden;
         }
 
+        /* Фоновое вертикальное видео */
+        .bg-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.25;   /* 75% прозрачности */
+            z-index: 0;
+            pointer-events: none;
+            border-radius: 48px;
+        }
+
+        /* Все контентные блоки — выше видео */
         .logo-container {
             margin-bottom: 24px;
             position: relative;
@@ -49,28 +64,10 @@
             background-color: #f8f9fa;
         }
 
-        /* Блок с заголовками — для фонового изображения */
         .title-section {
             position: relative;
             z-index: 1;
             margin-bottom: 32px;
-        }
-        /* Псевдоэлемент с картинкой car.png (75% прозрачности = opacity 0.25) */
-        .title-section::before {
-            content: "";
-            position: absolute;
-            top: -20px;      /* небольшой запас, чтобы покрыть отступы */
-            left: -24px;
-            right: -24px;
-            bottom: -20px;
-            background-image: url('car.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            opacity: 0.25;     /* 75% прозрачности */
-            z-index: -1;
-            border-radius: 48px;
-            pointer-events: none;
         }
 
         h1 {
@@ -193,20 +190,21 @@
             .btn-left {
                 gap: 12px;
             }
-            .title-section::before {
-                left: -18px;
-                right: -18px;
-            }
         }
     </style>
 </head>
 <body>
 <div class="taplink-card">
+    <!-- Вертикальное фоновое видео (75% прозрачности) -->
+    <video class="bg-video" autoplay loop muted playsinline>
+        <source src="video.mp4" type="video/mp4">
+        <!-- Если видео не загрузится, фон останется белым -->
+    </video>
+
     <div class="logo-container">
         <img src="logo.jpg" alt="Логотип автосалона" class="logo" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ccircle%20fill%3D%22%23ddd%22%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%2F%3E%3Ctext%20x%3D%2250%22%20y%3D%2267%22%20text-anchor%3D%22middle%22%20fill%3D%22%23999%22%20font-size%3D%2242%22%3ELOGO%3C%2Ftext%3E%3C%2Fsvg%3E';">
     </div>
 
-    <!-- Заголовки с фоновым изображением car.png -->
     <div class="title-section">
         <h1>Все ресурсы автосалона</h1>
         <div class="sub">⚡ Официальные каналы</div>
